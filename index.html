@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wiener Schotteria</title>
+  <!-- Icon library (Font Awesome) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    :root {
+      --bg: radial-gradient(circle at top, #0f1923 0%, #05050a 60%, #000 100%);
+      --card: rgba(5, 5, 10, 0.6);
+      --accent: #30f3ff;
+      --accent-2: #ff3ff8;
+      --text: #f2f2f2;
+      --muted: rgba(242, 242, 242, 0.7);
+      --shadow: 0 0 40px rgba(48, 243, 255, 0.25);
+      --radius: 1.5rem;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .wrapper {
+      max-width: 540px;
+      width: 100%;
+      background: linear-gradient(135deg, rgba(12, 12, 27, 0.25), rgba(255, 63, 248, 0.08));
+      border: 1px solid rgba(48, 243, 255, 0.2);
+      backdrop-filter: blur(18px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      padding: 2.8rem 2.2rem 2.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Decorative neon lines */
+    .wrapper::before,
+    .wrapper::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border: 1px solid rgba(255, 63, 248, 0.45);
+      border-radius: 50%;
+      filter: drop-shadow(0 0 22px rgba(255, 63, 248, 0.35));
+      z-index: -1;
+    }
+    .wrapper::before {
+      top: -140px;
+      right: -120px;
+    }
+    .wrapper::after {
+      bottom: -160px;
+      left: -120px;
+      border-color: rgba(48, 243, 255, 0.35);
+    }
+    h1 {
+      font-size: clamp(2.4rem, 4vw, 3rem);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #30f3ff 0%, #ff3ff8 70%, #fff 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .subtitle {
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .link-btn {
+      border: 1px solid rgba(242, 242, 242, 0.1);
+      background: rgba(5, 5, 10, 0.45);
+      border-radius: 999px;
+      padding: 0.9rem 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, border 0.12s;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    .link-btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(48, 243, 255, 0.7);
+      box-shadow: 0 0 18px rgba(48, 243, 255, 0.25);
+    }
+    .link-btn i {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle, rgba(48, 243, 255, 0.5) 0%, rgba(5, 5, 10, 0) 70%);
+      font-size: 1.3rem;
+    }
+    .link-text {
+      text-align: left;
+    }
+    .link-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .link-sub {
+      font-size: 0.7rem;
+      opacity: 0.65;
+    }
+    .footer {
+      margin-top: 2.2rem;
+      font-size: 0.7rem;
+      opacity: 0.6;
+    }
+    @media (max-width: 480px) {
+      .wrapper {
+        padding: 2.2rem 1.4rem 2.3rem;
+      }
+      .link-btn {
+        padding: 0.8rem 1rem;
+      }
+      h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrapper">
+    <h1>Wiener Schotteria</h1>
+    <p class="subtitle">Gravel. Grit. Community.</p>
+
+    <div class="links">
+      <!-- Discord -->
+      <a
+        class="link-btn"
+        href="https://discord.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa-brands fa-discord"></i>
+        <span class="link-text">
+          <span class="link-title">Join the Schotteria Discord</span><br />
+          <span class="link-sub">Chat, ride plans, gear talk.</span>
+        </span>
+      </a>
+
+      <!-- Instagram -->
+      <a
+        class="link-btn"
+        href="https://instagram.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa-brands fa-instagram"></i>
+        <span class="link-text">
+          <span class="link-title">Follow Schotteria on Instagram</span><br />
+          <span class="link-sub">Rides, routes & gravel stoke.</span>
+        </span>
+      </a>
+
+      <!-- Strava -->
+      <a
+        class="link-btn"
+        href="https://strava.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa-brands fa-strava"></i>
+        <span class="link-text">
+          <span class="link-title">Join Schotteria on Strava</span><br />
+          <span class="link-sub">Compare efforts, join group rides.</span>
+        </span>
+      </a>
+    </div>
+
+    <p class="footer">
+      Made in Vienna. Keep it dirty 🟣
+    </p>
+  </main>
+</body>
+</html>
