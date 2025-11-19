@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Community Rides — Guidelines | Wiener Schotteria</title>
+
+  <!-- Icon library (Font Awesome) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/all.min.css"
+  />
+
+  <style>
+    :root{
+      --bg: radial-gradient(circle at 20% -10%, #101a28 0%, #06060c 55%, #000 100%);
+      --panel: linear-gradient(135deg, rgba(12,12,27,0.25), rgba(255,63,248,0.08));
+      --border: rgba(48,243,255,0.2);
+      --text: #f2f2f2;
+      --muted: rgba(242,242,242,0.7);
+      --accent: #30f3ff;
+      --accent-2: #ff3ff8;
+      --radius: 1.5rem;
+      --shadow: 0 0 40px rgba(48,243,255,0.25);
+    }
+
+    * { box-sizing: border-box; }
+
+    body{
+      margin:0; min-height:100vh; padding:1.5rem;
+      display:flex; align-items:center; justify-content:center;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color:var(--text); background:var(--bg);
+    }
+
+    a.return-link{
+      display:inline-block;
+      margin-bottom:1.6rem;
+      font-size:.85rem;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      color:var(--accent);
+      text-decoration:none;
+      opacity:0.85;
+      transition:opacity .15s ease, transform .15s ease;
+    }
+    a.return-link:hover{
+      opacity:1;
+      transform:translateY(-1px);
+      text-shadow:0 0 6px rgba(48,243,255,0.4);
+    }
+
+    .wrapper{
+      width:100%; max-width:860px;
+      background:var(--panel);
+      border:1px solid var(--border);
+      backdrop-filter: blur(18px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position:relative; overflow:hidden;
+      padding:2.5rem 2rem 2rem;
+    }
+
+    .wrapper::before, .wrapper::after{
+      content:""; position:absolute; z-index:-1;
+      width:320px; height:320px; border-radius:50%;
+      border:1px solid rgba(255,63,248,0.45);
+      filter: drop-shadow(0 0 22px rgba(255,63,248,0.35));
+    }
+    .wrapper::before{ top:-150px; right:-110px; }
+    .wrapper::after{ bottom:-180px; left:-130px; border-color: rgba(48,243,255,0.35); }
+
+    header{ text-align:center; margin-bottom:1.6rem; }
+
+    h1{
+      margin:0 0 .35rem;
+      font-size: clamp(2.1rem, 3.5vw, 2.6rem);
+      letter-spacing:.04em; text-transform:uppercase;
+      background: linear-gradient(90deg, #30f3ff 0%, #ff3ff8 70%, #fff 100%);
+      -webkit-background-clip:text; color:transparent;
+    }
+    .subtitle{
+      margin:0; font-size:.95rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted);
+    }
+
+    .note{
+      margin:1.2rem auto 2rem; max-width:640px;
+      padding:.75rem 1rem;
+      border:1px dashed rgba(48,243,255,0.25);
+      border-radius: .85rem;
+      font-size:.9rem; color:var(--muted);
+    }
+
+    .chip{
+      display:inline-flex; align-items:center; gap:.45rem;
+      font-size:.75rem; letter-spacing:.08em; text-transform:uppercase;
+      padding:.35rem .6rem; border-radius:999px;
+      border:1px solid rgba(48,243,255,0.25);
+      color:var(--muted);
+      background: rgba(12,12,27,0.3);
+    }
+
+    .section{
+      background: rgba(5,5,10,0.45);
+      border:1px solid rgba(242,242,242,0.08);
+      border-radius: 1rem;
+      padding:1.2rem 1.2rem 1.1rem;
+      margin-bottom:1rem;
+    }
+
+    .section h2{
+      margin:0 0 .6rem;
+      font-size:1.05rem; letter-spacing:.08em; text-transform:uppercase;
+      color:#eaeaea; display:flex; align-items:center; gap:.55rem;
+    }
+
+    ul{
+      margin:.4rem 0 0 0; padding-left:1.2rem;
+      list-style:none;
+    }
+    li{
+      margin:.35rem 0; position:relative; line-height:1.35;
+      padding-left:1.45rem;
+    }
+    li .bullet{
+      position:absolute; left:0; top:.15rem;
+      width:1rem; height:1rem; border-radius:50%;
+      border:1px solid rgba(48,243,255,0.35);
+      box-shadow: 0 0 10px rgba(48,243,255,0.25) inset;
+    }
+
+    li.critical .bullet{
+      border-color: rgba(255,63,248,0.6);
+      box-shadow: 0 0 10px rgba(255,63,248,0.35) inset;
+    }
+
+    li.ok .bullet{
+      border-color: rgba(25,226,125,0.75);
+      box-shadow: 0 0 10px rgba(25,226,125,0.35) inset;
+    }
+
+    .divider{
+      height:1px; width:100%;
+      background: linear-gradient(90deg, rgba(48,243,255,0) 0%, rgba(48,243,255,0.35) 20%, rgba(255,63,248,0.35) 80%, rgba(255,63,248,0) 100%);
+      margin:1.2rem 0;
+      border:0;
+    }
+
+    footer{
+      text-align:center; margin-top:2rem; color:var(--muted); font-size:.8rem;
+    }
+
+    .bottom-return{
+      margin-top:1.8rem;
+      text-align:center;
+    }
+
+    @media (max-width: 560px){
+      .wrapper{ padding:2rem 1.1rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP RETURN LINK -->
+  <a class="return-link" href="https://schotteria.com">
+    ← Back to Schotteria Main Page
+  </a>
+
+  <main class="wrapper">
+
+    <header>
+      <h1>Community Rides — Guidelines</h1>
+      <p class="subtitle">Gravel. Grit. Community.</p>
+    </header>
+
+    <p class="note">
+      <span class="chip"><i class="fa-solid fa-info-circle"></i> The Concept</span>
+      Sometimes there is no official Schotteria Ride planned—or you just want to spin up a ride with friends. We love the initiative:
+      reach out, plan a route, and get out there.
+    </p>
+
+    <section class="section">
+      <h2><i class="fa-solid fa-route"></i> Route &amp; Planning</h2>
+      <ul>
+        <li><span class="bullet"></span>Use this channel only for community ride planning and communication.</li>
+        <li class="ok"><span class="bullet"></span>Share your route in advance (GPX / Komoot / Strava).</li>
+        <li><span class="bullet"></span>Include the basics: when, where to meet, coffee before/during/after, etc.</li>
+        <li class="critical"><span class="bullet"></span>Ensure all roads/paths are legal for cycling.</li>
+        <li><span class="bullet"></span>Give a heads-up on distance, elevation, and expected pace.</li>
+        <li class="critical"><span class="bullet"></span>State clearly if it’s a <strong>drop</strong> or <strong>no-drop</strong> ride—there must never be dropping on a no-drop ride.</li>
+      </ul>
+    </section>
+
+    <hr class="divider"/>
+
+    <section class="section">
+      <h2><i class="fa-solid fa-helmet-safety"></i> Ride Format</h2>
+      <ul>
+        <li class="ok"><span class="bullet"></span>Every ride needs at least one designated <strong>captain</strong> (you, or someone you nominate).</li>
+        <li><span class="bullet"></span>Captain(s) handle navigation and keep things running smoothly.</li>
+        <li><span class="bullet"></span>Captain(s) can assign helpers: sweep, mark turns, signal hazards.</li>
+        <li><span class="bullet"></span>Do a pre-ride briefing: introduce captain(s), route, signals, and do a headcount.</li>
+      </ul>
+    </section>
+
+    <hr class="divider"/>
+
+    <section class="section">
+      <h2><i class="fa-solid fa-handshake-angle"></i> The Schotteria Spirit</h2>
+      <ul>
+        <li><span class="bullet"></span>These rides represent our community — ride respectfully and follow traffic rules.</li>
+        <li><span class="bullet"></span>If someone has a mechanical or needs to turn back, make sure they’re sorted.</li>
+        <li><span class="bullet"></span>If you organize the ride, you’re the <strong>host</strong> — be welcoming and social.</li>
+      </ul>
+    </section>
+
+    <!-- BOTTOM RETURN LINK -->
+    <div class="bottom-return">
+      <a class="return-link" href="https://schotteria.com">
+        ← Back to Schotteria Main Page
+      </a>
+    </div>
+
+    <footer>
+      Made in Vienna. Keep it dirty 🟣
+    </footer>
+
+  </main>
+</body>
+</html>
